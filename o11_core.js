@@ -151,6 +151,35 @@ class O11_backgroundimage {
 
 /* 
 *************************************************************************
+* Object O11_backgroundvideo
+*************************************************************************
+*/
+class O11_backgroundvideo {
+  constructor() { 
+
+    this.p_filepath = new O11_prop();
+    this.p_size = new O11_size();
+        
+    // object properties defaults
+    this.p_size.p_width.set("100%");
+    this.p_size.p_height.set("auto");
+  }
+
+  set_prop2container(container) {
+    
+    container.innerHTML = 
+    "<video width='" + this.p_size.p_width.get() + "'" 
+    + " height='" + this.p_size.p_height.get() + "'" + 
+    " autoplay loop" + ">" + "<source src='" + 
+    this.p_filepath.get() + "'" + "type='video/mp4'" + ">" + "</video>";
+  
+  }
+}
+// end O11_bgvideo
+
+
+/* 
+*************************************************************************
 * Object O_color
 *************************************************************************
 */
