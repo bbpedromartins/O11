@@ -10,7 +10,9 @@
 */
 
 //change this to your O11 js path in your website
-let jspath='/site/js/';
+let o11path='/site/js/';
 
 // include core
-document.writeln("<script src='"+jspath+"o11_core.js'></script>");
+document.writeln("<script src='"+o11path+"o11_core.js'></script>");
+
+document.writeln("<script src='"+o11path+"objects/o11_page.js'></script>");
