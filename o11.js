@@ -16,3 +16,4 @@ let o11path='/site/js/';
 document.writeln("<script src='"+o11path+"o11_core.js'></script>");
 
 document.writeln("<script src='"+o11path+"objects/o11_page.js'></script>");
+document.writeln("<script src='"+o11path+"objects/o11_tile.js'></script>");
