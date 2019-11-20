@@ -1,9 +1,9 @@
 /*
 *********************************************
 * LIBRARY NAME  : OB11_CORE
-* VERSION       : 20.11.2019
+* VERSION       : 17.11.2019
 * AUTHOR/CODER  : Pedro Martins
-* FILE NAME     : o11_core.js
+* FILE NAME     : ob11_core.js
 * SITE          : obj11.com
 * LICENSE       : obj11.com
 *********************************************
@@ -31,6 +31,8 @@ const PURPLE   = "rgba(128,000,128,1.0)";
 const TEAL     = "rgba(000,128,128,1.0)";
 const NAVY     = "rgba(000,000,128,1.0)";
 const ORANGE   = "rgba(255,165,000,1.0)";
+
+let globalobjid = 0;
 
 /* 
 *************************************************************************
@@ -80,6 +82,7 @@ class O11_obj {
       parentcontainer = document.getElementById(parentid);
       this.p_parentid.set(parentid);
     }
+
     newcontainer = document.createElement("div");
     att = document.createAttribute("id");
 
@@ -90,7 +93,6 @@ class O11_obj {
   }  
 } // end O11_obj
 
-    
 /* 
 *************************************************************************
 * Object O11_size
@@ -404,7 +406,6 @@ class O11_color {
 }
 // end O11_color
 
-
 /* 
 *************************************************************************
 * Object O11_backgroundcolor
@@ -481,7 +482,7 @@ class O11_align {
   
     // object properties defaults
 
-    this.p_locate.set();
+    this.p_locate.set("");
     // float
     // topleft, topmiddle, topright
     // middleleft, middle, middleright
@@ -509,42 +510,6 @@ class O11_align {
 
   }
 
-  set_prop2container(container) {
-
-    if (this.p_position.get() === "fixed") {
-      container.style.top = this.p_top.get();
-      container.style.bottom = this.p_bottom.get();
-      container.style.right = this.p_right.get();
-      container.style.left = this.p_left.get();
-      container.style.transform = this.p_transform.get();
-    }  
-
-    if (this.p_position.get() === "absolute") {
-      container.style.top = this.p_top.get();
-      container.style.bottom = this.p_bottom.get();
-      container.style.right = this.p_right.get();
-      container.style.left = this.p_left.get();
-      container.style.transform = this.p_transform.get();
-    }
-
-    if (this.p_position.get() === "relative") {
-      container.style.float = this.p_float.get();
-      container.style.marginTop = this.p_margintop.get();
-      container.style.marginBottom = this.p_marginbottom.get();
-      container.style.marginRight = this.p_marginright.get();
-      container.style.marginLeft = this.p_marginleft.get();
-    }
-    
-    container.style.position = this.p_position.get();
-    container.style.zIndex = this.p_zindex.get();
-
-    container.style.paddingTop = this.p_paddingtop.get();
-    container.style.paddingBottom = this.p_paddingbottom.get();
-    container.style.paddingLeft = this.p_paddingleft.get();
-    container.style.paddingRight = this.p_paddingright.get();
-
-  }
-
   subtract_px(px1, px2) {
     let result;
     let res;
@@ -566,6 +531,7 @@ class O11_align {
           
     return result;
   }
+
 
   set_locate(locate) {
     
@@ -651,7 +617,41 @@ class O11_align {
     }
   }
 
+  set_prop2container(container) {
+
+    if (this.p_position.get() === "fixed") {
+      container.style.top = this.p_top.get();
+      container.style.bottom = this.p_bottom.get();
+      container.style.right = this.p_right.get();
+      container.style.left = this.p_left.get();
+      container.style.transform = this.p_transform.get();
+    }  
+
+    if (this.p_position.get() === "absolute") {
+      container.style.top = this.p_top.get();
+      container.style.bottom = this.p_bottom.get();
+      container.style.right = this.p_right.get();
+      container.style.left = this.p_left.get();
+      container.style.transform = this.p_transform.get();
+    }
+
+    if (this.p_position.get() === "relative") {
+      container.style.float = this.p_float.get();
+      container.style.marginTop = this.p_margintop.get();
+      container.style.marginBottom = this.p_marginbottom.get();
+      container.style.marginRight = this.p_marginright.get();
+      container.style.marginLeft = this.p_marginleft.get();
+    }
+    
+    container.style.position = this.p_position.get();
+    container.style.zIndex = this.p_zindex.get();
+
+    container.style.paddingTop = this.p_paddingtop.get();
+    container.style.paddingBottom = this.p_paddingbottom.get();
+    container.style.paddingLeft = this.p_paddingleft.get();
+    container.style.paddingRight = this.p_paddingright.get();
+
+  }
+  
 }
 // end O11_align
-
-
