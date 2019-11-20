@@ -115,3 +115,34 @@ class O11_size {
   }  
   
 } // end O11_size
+
+
+/* 
+*************************************************************************
+* Object O11_backgroundimage
+*************************************************************************
+*/
+class O11_backgroundimage {
+ 
+  constructor() {
+    this.p_bgposition = new O11_prop();
+    this.p_bgsize = new O11_prop();
+    this.p_bgrepeat = new O11_prop(); 
+    this.p_filepath = new O11_prop();
+  
+    // object properties defaults
+    this.p_bgposition.set("");
+    this.p_bgsize.set("");
+    this.p_bgrepeat.set("no-repeat"); // no-repeat | repeat
+    this.p_filepath.set("");
+  }
+  
+  set_prop2container(container) {
+    container.style.backgroundRepeat = this.p_bgrepeat.get();
+    container.style.backgroundPosition = this.p_bgposition.get();
+    container.style.backgroundSize = this.p_bgsize.get();
+    container.style.backgroundImage = "url('" + this.p_filepath.get() + "')";
+  }
+}  
+// end O11_backgroundimage
+
