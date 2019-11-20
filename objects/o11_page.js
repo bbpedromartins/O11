@@ -4,8 +4,8 @@
 * VERSION       : 20.11.2019
 * AUTHOR/CODER  : Pedro Martins
 * FILE NAME     : o11_page.js
-* SITE          : 
-* LICENSE       : 
+* SITE          : obj11.com
+* LICENSE       : obj11.com
 *********************************************
 */
 
