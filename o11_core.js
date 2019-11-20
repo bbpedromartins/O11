@@ -80,7 +80,6 @@ class O11_obj {
       parentcontainer = document.getElementById(parentid);
       this.p_parentid.set(parentid);
     }
-
     newcontainer = document.createElement("div");
     att = document.createAttribute("id");
 
@@ -90,3 +89,29 @@ class O11_obj {
     parentcontainer.appendChild(newcontainer);
   }  
 } // end O11_obj
+
+    
+/* 
+*************************************************************************
+* Object O11_size
+*************************************************************************
+*/
+class O11_size {
+  constructor() { 
+    this.p_width = new O11_prop(); // px %
+    this.p_height = new O11_prop(); // px %
+    this.p_boxsizing = new O11_prop();
+  
+    // object properties defaults
+    this.p_width.set(""); // px %
+    this.p_height.set(""); // px %
+    this.p_boxsizing.set("border-box"); // doesn't include margin
+  }
+  
+  set_prop2container(container) {
+    container.style.width = this.p_width.get();
+    container.style.height = this.p_height.get();
+    container.style.boxSizing = this.p_boxsizing.get();
+  }  
+  
+} // end O11_size
