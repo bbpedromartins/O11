@@ -146,3 +146,262 @@ class O11_backgroundimage {
 }  
 // end O11_backgroundimage
 
+
+/* 
+*************************************************************************
+* Object O_color
+*************************************************************************
+*/
+class O11_color {
+
+  constructor() {
+    this.p_rgbacolor="";
+
+    // object properties defaults
+    this.p_rgbacolor="rgba(000,000,000,1.0)";
+  }
+
+  set_rgbacolor(newred, newgreen, newblue, newtransparency) {
+    let red, green, blue, transparency; 
+    
+    if (Number.isFinite(newred) === true &&
+        Number.isFinite(newgreen) === true &&
+        Number.isFinite(newblue) === true &&
+        Number.isFinite(newtransparency) === true) {
+
+      if (newred < 0) {
+        newred = 0
+      }  
+  
+      if (newred > 255) {
+        newred = 255
+      }  
+
+      red = newred.toString();
+
+      if (newred < 10) {
+        red = "00" + red;
+      }
+
+      if (newred > 10 && newred < 100) {
+        red = "0" + red;
+      }
+
+
+      if (newgreen < 0) {
+        newgreen = 0
+      }  
+
+      if (newgreen > 255) {
+        newgreen = 255
+      }  
+  
+      green = newgreen.toString();
+
+      if (newgreen < 10) {
+        green = "00" + green;
+      }
+
+      if (newgreen > 10 && newgreen < 100) {
+        green = "0" + green;
+      }
+
+      if (newblue < 0) {
+        newblue = 0
+      }  
+  
+      if (newblue > 255) {
+        newblue = 255
+      }  
+
+      blue = newblue.toString();
+
+      if (newblue < 10) {
+        blue = "00" + blue;
+      }
+
+      if (newblue > 10 && newblue < 100) {
+        blue = "0" + blue;
+      }
+
+      if (newtransparency < 0.0) {
+        transparency = "0.0";
+      }
+  
+      if (newtransparency > 1.0) {
+        transparency = "1.0";
+      }
+  
+      transparency = newtransparency.toString();
+
+      this.p_rgbacolor = "rgba(" + red + "," + green + "," + blue + "," + transparency + ")";
+    } else {
+      console.log("Error: set_rgbacolor ... at least one param is not numeric");
+    }
+
+  }
+  
+  get_rgbacolor() {
+    return this.p_rgbacolor;
+  }
+
+  set_red(newred) {
+    let red, green, blue, transparency;  
+
+    red = this.p_rgbacolor.substr(5,3);
+    green = this.p_rgbacolor.substr(9,3);
+    blue = this.p_rgbacolor.substr(13,3);
+    transparency = this.p_rgbacolor.substr(17,3);
+
+    if (Number.isFinite(newred) === true) {
+
+      if (newred < 0) {
+        newred = 0
+      }  
+  
+      if (newred > 255) {
+        newred = 255
+      }  
+
+      red = newred.toString();
+
+      if (newred < 10) {
+        red = "00" + red;
+      }
+
+      if (newred > 10 && newred < 100) {
+        red = "0" + red;
+      }
+ 
+      this.p_rgbacolor = "rgba(" + red + "," + green + "," + blue + "," + transparency + ")";
+
+    } else {
+      console.log("Error: set_red ... param newred is not numeric");  
+    }  
+  }
+
+  get_red() {
+    return this.p_rgbacolor.substr(5,3);
+  }
+
+  set_green(newgreen) {
+    let red, green, blue, transparency;  
+
+    red = this.p_rgbacolor.substr(5,3);
+    green = this.p_rgbacolor.substr(9,3);
+    blue = this.p_rgbacolor.substr(13,3);
+    transparency = this.p_rgbacolor.substr(17,3);
+
+    if (Number.isFinite(newgreen) === true) {
+
+      if (newgreen < 0) {
+        newgreen = 0
+      }  
+
+      if (newgreen > 255) {
+        newgreen = 255
+      }  
+  
+      green = newgreen.toString();
+
+      if (newgreen < 10) {
+        green = "00" + green;
+      }
+
+      if (newgreen > 10 && newgreen < 100) {
+        green = "0" + green;
+      }
+ 
+      this.p_rgbacolor = "rgba(" + red + "," + green + "," + blue + "," + transparency + ")";
+    } else {
+      console.log("Error: set_green ... param newgreen is not numeric");
+    }
+     
+  }
+
+  get_green() {
+    return this.p_rgbacolor.substr(9,3);
+  }
+
+  set_blue(newblue) {
+    let red, green, blue, transparency;  
+
+    red = this.p_rgbacolor.substr(5,3);
+    green = this.p_rgbacolor.substr(9,3);
+    blue = this.p_rgbacolor.substr(13,3);
+    transparency = this.p_rgbacolor.substr(17,3);
+
+    if (Number.isFinite(newblue) === true) {
+  
+      if (newblue < 0) {
+        newblue = 0
+      }  
+
+      if (newblue > 255) {
+        newblue = 255
+      }  
+
+      blue = newblue.toString();
+
+      if (newblue < 10) {
+        blue = "00" + blue;
+      }
+
+      if (newblue > 10 && newblue < 100) {
+        blue = "0" + blue;
+      }
+      
+      this.p_rgbacolor = "rgba(" + red + "," + green + "," + blue + "," + transparency + ")";
+
+    } else {
+      console.log("Error: set_blue ... param newblue is not numeric");
+    }   
+  }
+
+  get_blue() {
+    return this.p_rgbacolor.substr(13,3);
+  }
+
+  set_transparency(newtransparency) {
+    let red, green, blue, transparency;  
+
+    red = this.p_rgbacolor.substr(5,3);
+    green = this.p_rgbacolor.substr(9,3);
+    blue = this.p_rgbacolor.substr(13,3);
+    transparency = this.p_rgbacolor.substr(17,3);
+    
+    if (Number.isFinite(newtransparency) === true) {
+
+      if (newtransparency < 0.0) {
+        transparency = "0.0";
+      }
+
+      if (newtransparency > 1.0) {
+        transparency = "1.0";
+      }
+
+      transparency = newtransparency.toString();
+
+      this.p_rgbacolor = "rgba(" + red + "," + green + "," + blue + "," + transparency + ")";
+    } else {
+      console.log("Error: set_transparency ... param newtransparency is not numeric");
+    }
+
+  }
+
+  get_transparency() {
+    return this.p_rgbacolor.substr(17,3);
+  }
+
+  set_color(color) {
+     this.p_rgbacolor = color;    
+  }
+
+    
+  set_prop2container(container) {
+    container.style.color = this.p_rgbacolor;
+  }
+}
+// end O11_color
+
+
