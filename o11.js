@@ -9,3 +9,8 @@
 *********************************************
 */
 
+//change this to your js dir in your website
+let jspath='/site/js/';
+
+// include core
+document.writeln("<script src='"+jspath+"o11_core.js'></script>");
