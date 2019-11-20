@@ -405,3 +405,15 @@ class O11_color {
 // end O11_color
 
 
+/* 
+*************************************************************************
+* Object O11_backgroundcolor
+*************************************************************************
+*/
+class O11_backgroundcolor extends O11_color {
+
+  set_prop2container(container) {
+    container.style.backgroundColor = this.p_rgbacolor;
+  }
+} 
+// end O11_backgroundcolor
