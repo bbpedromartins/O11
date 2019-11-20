@@ -450,3 +450,208 @@ class O11_gradient {
 // end O11_gradient
 
 
+/* 
+*************************************************************************
+* Object O11_align
+*************************************************************************
+*/
+class O11_align {
+  constructor() {
+
+    this.p_position = new O11_prop();
+    this.p_zindex = new O11_prop();
+
+    this.p_locate = new O11_prop();
+    this.p_top = new O11_prop();
+    this.p_bottom = new O11_prop();
+    this.p_right = new O11_prop(); 
+    this.p_left = new O11_prop();
+    this.p_transform = new O11_prop();
+    this.p_float = new O11_prop();
+
+    this.p_margintop = new O11_prop(); 
+    this.p_marginbottom = new O11_prop(); 
+    this.p_marginleft = new O11_prop(); 
+    this.p_marginright = new O11_prop(); 
+
+    this.p_paddingtop = new O11_prop(); 
+    this.p_paddingbottom = new O11_prop();
+    this.p_paddingleft = new O11_prop();
+    this.p_paddingright = new O11_prop();
+  
+    // object properties defaults
+
+    this.p_locate.set();
+    // float
+    // topleft, topmiddle, topright
+    // middleleft, middle, middleright
+    // bottomleft, bottommiddle, bottomright
+
+    this.p_position.set("absolute"); // fixed relative absolute
+    this.p_zindex.set(0);
+    
+    this.p_top.set("0px"); // px
+    this.p_bottom.set("0px"); // px
+    this.p_right.set("0px"); // px
+    this.p_left.set("0px"); // px
+    this.p_transform.set("");  
+    this.p_float.set("left"); // left right none
+
+    this.p_margintop.set("0px"); // auto px
+    this.p_marginbottom.set("0px"); // auto px
+    this.p_marginleft.set("auto"); // auto px
+    this.p_marginright.set("auto"); // auto px
+
+    this.p_paddingtop.set("0px"); // px
+    this.p_paddingbottom.set("0px"); // px
+    this.p_paddingleft.set("0px"); // px
+    this.p_paddingright.set("0px"); // px
+
+  }
+
+  set_prop2container(container) {
+
+    if (this.p_position.get() === "fixed") {
+      container.style.top = this.p_top.get();
+      container.style.bottom = this.p_bottom.get();
+      container.style.right = this.p_right.get();
+      container.style.left = this.p_left.get();
+      container.style.transform = this.p_transform.get();
+    }  
+
+    if (this.p_position.get() === "absolute") {
+      container.style.top = this.p_top.get();
+      container.style.bottom = this.p_bottom.get();
+      container.style.right = this.p_right.get();
+      container.style.left = this.p_left.get();
+      container.style.transform = this.p_transform.get();
+    }
+
+    if (this.p_position.get() === "relative") {
+      container.style.float = this.p_float.get();
+      container.style.marginTop = this.p_margintop.get();
+      container.style.marginBottom = this.p_marginbottom.get();
+      container.style.marginRight = this.p_marginright.get();
+      container.style.marginLeft = this.p_marginleft.get();
+    }
+    
+    container.style.position = this.p_position.get();
+    container.style.zIndex = this.p_zindex.get();
+
+    container.style.paddingTop = this.p_paddingtop.get();
+    container.style.paddingBottom = this.p_paddingbottom.get();
+    container.style.paddingLeft = this.p_paddingleft.get();
+    container.style.paddingRight = this.p_paddingright.get();
+
+  }
+
+  subtract_px(px1, px2) {
+    let result;
+    let res;
+    
+    res = parseInt(px1,10) - parseInt(px2,10);
+
+    result = res.toString() + "px";
+          
+    return result;
+  }
+
+  add_px(px1, px2) {
+    let result;
+    let res;
+    
+    res = parseInt(px1,10) + parseInt(px2,10);
+
+    result = res.toString() + "px";
+          
+    return result;
+  }
+
+  set_locate(locate) {
+    
+    if (locate === "topleft") {
+        this.p_top.set("0px");
+        this.p_bottom.set("");
+        this.p_left.set("0px");
+        this.p_right.set("");
+        this.p_transform.set("translate(0%, 0%)");
+        this.p_locate.set("topleft");
+    }
+
+    if (locate === "topcenter") {
+        this.p_top.set("0px");
+        this.p_bottom.set("");
+        this.p_left.set("50%");
+        this.p_right.set("");
+        this.p_transform.set("translate(-50%, 0%)");
+        this.p_locate.set("topcenter");
+    }
+
+    if (locate === "topright") {
+        this.p_top.set("0px");
+        this.p_bottom.set("");
+        this.p_left.set("");
+        this.p_right.set("0px");
+        this.p_transform.set("translate(0%, 0%)");
+        this.p_locate.set("topright");
+    }
+
+    if (locate === "middleleft") {
+        this.p_top.set("50%");
+        this.p_bottom.set("");
+        this.p_left.set("0px");
+        this.p_right.set("");
+        this.p_transform.set("translate(0%, -50%)");
+        this.p_locate.set("middleleft");
+    }
+
+    if (locate === "middlecenter") {
+        this.p_top.set("50%");
+        this.p_bottom.set("");
+        this.p_left.set("50%");
+        this.p_right.set("");
+        this.p_transform.set("translate(-50%, -50%)");
+        this.p_locate.set("middlecenter");
+    }
+
+    if (locate === "middleright") {
+        this.p_top.set("50%"); 
+        this.p_bottom.set("");
+        this.p_left.set("");
+        this.p_right.set("0px");
+        this.p_transform.set("translate(0%, -50%)");
+        this.p_locate.set("middleright");
+    }
+
+    if (locate === "bottomleft") {
+        this.p_top.set("");
+        this.p_bottom.set("0px");
+        this.p_left.set("0px");
+        this.p_right.set("");
+        this.p_transform.set("translate(0%, 0%)");
+        this.p_locate.set("bottomleft");
+    }
+
+    if (locate === "bottomcenter") {
+        this.p_top.set("");
+        this.p_bottom.set("0px");
+        this.p_left.set("50%");
+        this.p_right.set("");
+        this.p_transform.set("translate(-50%, 0%)");
+        this.p_locate.set("bottomcenter");
+    }
+
+    if (locate === "bottomright") {
+        this.p_top.set("");
+        this.p_bottom.set("0px");
+        this.p_left.set("");
+        this.p_right.set("0px");
+        this.p_transform.set("translate(0%, 0%)");
+        this.p_locate.set("bottomright");
+    }
+  }
+
+}
+// end O11_align
+
+
