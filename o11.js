@@ -9,7 +9,7 @@
 *********************************************
 */
 
-//change this to your js dir in your website
+//change this to your O11 js path in your website
 let jspath='/site/js/';
 
 // include core
