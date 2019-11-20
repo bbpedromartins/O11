@@ -1,2 +1,0 @@
-1º Working on some core objects for O11
-2º First object for building a website: O11_page
