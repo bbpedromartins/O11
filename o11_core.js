@@ -417,3 +417,36 @@ class O11_backgroundcolor extends O11_color {
   }
 } 
 // end O11_backgroundcolor
+
+
+/* 
+*************************************************************************
+* Object O11_gradient
+*************************************************************************
+*/
+class O11_gradient {
+  constructor() { 
+
+    this.p_direction= new O11_prop();
+    this.p_color1 = new O11_color();
+    this.p_color2 = new O11_color();
+    
+    // object properties defaults
+    this.p_color1.set_rgbacolor(0,0,0,1.0);
+    this.p_color2.set_rgbacolor(255,255,255,1.0);
+    this.p_direction.set("180deg");
+
+  }
+
+  set_prop2container(container) {
+    let style;
+    
+    style = "linear-gradient(" + this.p_direction.get() + ", " + this.p_color1.get_rgbacolor() + ", " + this.p_color2.get_rgbacolor() + ") no-repeat";
+
+    container.style.background = style;
+ 
+  }
+}
+// end O11_gradient
+
+
