@@ -71,4 +71,5 @@ class O11_tile {
       }
   
     }
-  }  // end O11_tile
+  }  
+// end O11_tile
