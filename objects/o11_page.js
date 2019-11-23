@@ -1,7 +1,7 @@
 /*
 *********************************************
-* OBJECT NAME   : O11_PAGE
-* VERSION       : 20.11.2019
+* OBJECT NAME   : O11_page
+* VERSION       : 23.11.2019
 * AUTHOR/CODER  : Pedro Martins
 * FILE NAME     : o11_page.js
 * SITE          : obj11.com
@@ -11,12 +11,12 @@
 
 class O11_page {
     constructor() {
-        this.p_obj = new O11_obj();
-        this.p_size = new O11_size();
-        this.p_bgcolor = new O11_backgroundcolor();
-        this.p_bgimage = new O11_backgroundimage();
-        this.p_bggradient = new O11_gradient();
-        this.p_option = new O11_prop();
+        this.p_obj = new O11CORE_obj();
+        this.p_size = new O11CORE_size();
+        this.p_bgcolor = new O11CORE_backgroundcolor();
+        this.p_bgimage = new O11CORE_backgroundimage();
+        this.p_bggradient = new O11CORE_gradient();
+        this.p_option = new O11CORE_prop();
         
         // object properties defaults
         this.p_obj.p_id.set("body");
@@ -40,5 +40,5 @@ class O11_page {
             break;
         }
     }
-} // end O11_page 
-
+} 
+// end O11_page 
