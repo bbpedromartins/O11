@@ -1,9 +1,9 @@
 /*
 *********************************************
 * OBJECT NAME   : O11_tile
-* VERSION       : 20.11.2019
+* VERSION       : 23.11.2019
 * AUTHOR/CODER  : Pedro Martins
-* FILE NAME     : o11_page.js
+* FILE NAME     : o11_tile.js
 * SITE          : obj11.com
 * LICENSE       : obj11.com
 *********************************************
@@ -17,15 +17,15 @@
 class O11_tile {
  
     constructor(id) {
-      this.p_obj = new O11_obj();
-      this.p_align = new O11_align();
-      this.p_bgcolor= new O11_backgroundcolor();
-      this.p_bggradient = new O11_gradient();
-      this.p_size = new O11_size();
-      this.p_bgimage = new O11_backgroundimage();
-      this.p_bgvideo = new O11_backgroundvideo();
-      this.p_option = new O11_prop();
-      this.p_overflow = new O11_prop();
+      this.p_obj = new O11CORE_obj();
+      this.p_align = new O11CORE_align();
+      this.p_bgcolor= new O11CORE_backgroundcolor();
+      this.p_bggradient = new O11CORE_gradient();
+      this.p_size = new O11CORE_size();
+      this.p_bgimage = new O11CORE_backgroundimage();
+      this.p_bgvideo = new O11CORE_backgroundvideo();
+      this.p_option = new O11CORE_prop();
+      this.p_overflow = new O11CORE_prop();
   
       // object properties defaults
       this.p_option.set("bgcolor");
