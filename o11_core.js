@@ -730,3 +730,190 @@ class O11CORE_audio {
   }
 } 
 // O11CORE_audio
+
+
+/* 
+*************************************************************************
+* Object O11CORE_text
+*************************************************************************
+*/
+class O11CORE_text {
+
+  constructor() {
+    this.p_text = "";  
+        
+    // object properties defaults
+    this.set("");
+  }    
+
+  set(text) {
+     this.text = text; 
+  } 
+
+  get() {
+    return this.text;
+  }
+
+  set_prop2container(container) {
+    let text;
+    text = document.createElement("SPAN");
+    //text = document.createElement("DIV");
+    //text.textContent = this.get(); 
+    //text.innerText = this.get(); 
+    text.innerHTML = this.get(); 
+
+    container.appendChild(text);
+  }    
+
+  set_textspacesleft(text) {
+    var countleftspaces, htmlspace;
+
+    htmlspace = "&nbsp;";
+
+    countleftspaces = text.match(/^\s*/)[0].length;
+
+    text = text.trim();
+
+    this.text = htmlspace.repeat(countleftspaces) + text;
+  }
+
+  set_textspacesright(text) {
+    var countrightspaces, htmlspace;
+
+    htmlspace = "&nbsp;";
+
+    countrightspaces = text.match(/\s*$/)[0].length;
+
+    text = text.trim();
+
+    this.text = text + htmlspace.repeat(countrightspaces);
+  }
+
+  set_textspacesleftright(text) {
+    var countleftspaces, countrightspaces, htmlspace;
+
+    htmlspace = "&nbsp;";
+
+    countleftspaces = text.match(/^\s*/)[0].length;
+    countrightspaces = text.match(/\s*$/)[0].length;
+
+    text = text.trim();
+
+    this.text = htmlspace.repeat(countleftspaces) + text + htmlspace.repeat(countrightspaces);
+  }
+
+}
+
+//end O11CORE_text
+
+
+/* 
+  *************************************************************************
+  * Object O_Font
+  *************************************************************************
+  */
+ class O11CORE_font {
+  constructor() {
+    this.p_fontweight = new O11CORE_prop();
+    this.p_fontfamily = new O11CORE_prop();
+    this.p_fontsize = new O11CORE_prop();
+    this.p_fontstyle = new O11CORE_prop();
+    this.p_fontvariant = new O11CORE_prop();
+    this.p_fontletterspacing = new O11CORE_prop();
+
+    // object properties defaults
+    this.p_fontweight.set("");
+    this.p_fontfamily.set("Consolas");
+    this.p_fontsize.set("16px");
+    this.p_fontstyle.set("");
+    this.p_fontvariant.set("");
+    this.p_fontletterspacing.set("");
+  }
+
+  set_prop2container(container) {
+
+    container.style.fontWeight = this.p_fontweight.get();
+    container.style.fontFamily = this.p_fontfamily.get();
+    container.style.fontSize = this.p_fontsize.get();
+    container.style.fontStyle = this.p_fontstyle.get();
+    container.style.fontVariant = this.p_fontvariant.get();
+    container.style.fontletterspacing = this.p_fontletterspacing.get();
+  }
+
+  set_fontsize(font) {
+    let fontsize;
+
+    switch(font) {
+      case "xsmall": 
+        fontsize ="10px";
+        break;
+      case "small": 
+        fontsize ="12px";
+        break;
+      case "normal": 
+        fontsize ="16px";
+        break;
+      case "large": 
+        fontsize ="18px";
+        break;
+      case "xlarge": 
+        fontsize ="22px";
+        break;
+      case "big": 
+        fontsize ="26px";
+        break;
+      case "xbig": 
+        fontsize ="36px";
+        break;
+      case "huge": 
+        fontsize ="48px";
+        break;
+      case "xhuge": 
+        fontsize ="72px";
+        break;
+      default: 
+        fontsize ="16px";   
+    }
+    this.p_fontsize.set(fontsize);
+  }
+}
+
+//end O11CORE_font
+
+
+/* 
+*************************************************************************
+* Object O11CORE_textgradient
+*************************************************************************
+*/
+class O11CORE_textgradient {
+  constructor() { 
+    this.p_direction = new O11CORE_prop();
+    this.p_color1 = new O11CORE_color();
+    this.p_color2 = new O11CORE_color();
+    
+    // object properties defaults
+    this.p_color1.set_rgbacolor(0,0,0,1.0);
+    this.p_color2.set_rgbacolor(255,255,255,1.0);
+    this.p_direction.set("90deg");
+
+    this.textgradientstyle = "";
+  }
+
+
+  set_prop2container(container) {
+    let style;
+
+    style = "background-image: linear-gradient(" + this.p_direction.get() + ", " + this.p_color1.get_rgbacolor() + " 33%, " + 
+    this.p_color2.get_rgbacolor() + " 66%);" + "-webkit-background-clip: text; -webkit-text-fill-color: transparent; white-space: nowrap;";
+    
+    this.textgradientstyle = style;
+
+    container.style = style;
+  }    
+
+  get_textgradientstyle() {
+    return this.textgradientstyle;
+  }  
+}
+//end O11CORE_textgradient
