@@ -20,3 +20,4 @@ document.writeln("<script src='"+o11path+"objects/o11_page.js'></script>");
 document.writeln("<script src='"+o11path+"objects/o11_tile.js'></script>");
 document.writeln("<script src='"+o11path+"objects/o11_audio.js'></script>");
 document.writeln("<script src='"+o11path+"objects/o11_text.js'></script>");
+document.writeln("<script src='"+o11path+"objects/o11_image.js'></script>");
