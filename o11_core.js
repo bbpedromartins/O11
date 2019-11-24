@@ -424,11 +424,11 @@ class O11CORE_color {
     return this.p_rgbacolor.substr(17,3);
   }
 
-  set_color(color) {
-     this.p_rgbacolor = color;    
+  set_color(color, transparency) {
+     this.p_rgbacolor = color;
+     this.set_transparency(transparency);
   }
-
-    
+ 
   set_prop2container(container) {
     container.style.color = this.p_rgbacolor;
   }
@@ -809,7 +809,7 @@ class O11CORE_text {
 
 /* 
   *************************************************************************
-  * Object O_Font
+  * Object O11CORE_Font
   *************************************************************************
   */
  class O11CORE_font {
@@ -917,3 +917,40 @@ class O11CORE_textgradient {
   }  
 }
 //end O11CORE_textgradient
+
+
+/* 
+*************************************************************************
+* Object O11CORE_image
+*************************************************************************
+*/
+
+class O11CORE_image {
+
+  constructor() {
+    this.p_filepath = new O11CORE_prop();
+    this.p_imagealt = new O11CORE_prop();
+    this.p_width = new O11CORE_prop();
+    this.p_height = new O11CORE_prop();
+
+    // object properties defaults
+    this.p_filepath.set("");
+    this.p_imagealt.set("image");
+    this.p_width.set("32px"); // px
+    this.p_height.set("32px"); // px
+  }
+
+  set_prop2container(container) {
+    let img;
+          
+    img = document.createElement("IMG");
+    img.setAttribute("src", this.p_filepath.get());  
+    img.setAttribute("alt", this.p_imagealt.get());
+    img.setAttribute("width", this.p_width.get());
+    img.setAttribute("height", this.p_height.get());
+
+    container.appendChild(img);
+
+  }
+}
+//end O11CORE_image
