@@ -954,3 +954,66 @@ class O11CORE_image {
   }
 }
 //end O11CORE_image
+
+
+/* 
+*************************************************************************
+* Object O11CORE_list
+*************************************************************************
+*/
+class O11CORE_list {
+
+  constructor() {
+    this.listarr = [];
+    this.length = 0;
+  }  
+
+  addnew(element) {
+    this.listarr.push(element); 
+  }
+  
+  get(idx) {
+    return this.listarr[idx];
+  }
+
+  len() {
+    this.length = this.listarr.length;
+    return this.length;
+  }
+
+}
+//end O11CORE_list
+
+
+/* 
+*************************************************************************
+* Object O11CORE_link
+*************************************************************************
+*/
+
+class O11CORE_link {
+
+  constructor() {
+    this.p_target = new O11CORE_prop();
+    this.p_url = new O11CORE_prop();
+    this.p_title = new O11CORE_prop();
+
+    // object properties defaults
+    this.p_target.set("_self"); // _self _blank
+    this.p_url.set("#");
+    this.p_title.set("");
+  }
+
+  set_prop2container(container) {
+    let a;
+          
+    a = document.createElement("A");
+    a.setAttribute("href", this.p_url.get());  
+    a.setAttribute("target", this.p_target.get());
+    a.setAttribute("title", this.p_title.get());
+
+    container.appendChild(a);
+    
+  }
+}
+//end O11CORE_link
