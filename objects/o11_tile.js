@@ -1,11 +1,11 @@
 /*
 *********************************************
 * OBJECT NAME   : O11_tile
-* VERSION       : 23.11.2019
+* VERSION       : 31.12.2019
 * AUTHOR/CODER  : Pedro Martins
 * FILE NAME     : o11_tile.js
-* SITE          : obj11.com
-* LICENSE       : obj11.com
+* SITE          : o11.pt
+* LICENSE       : o11.pt
 *********************************************
 */
 
@@ -72,4 +72,4 @@ class O11_tile {
   
     }
   }  
-// end O11_tile
+  // end O11_tile

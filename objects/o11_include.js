@@ -1,11 +1,11 @@
 /*
 *********************************************
 * OBJECT NAME   : O11_include
-* VERSION       : 25.11.2019
+* VERSION       : 31.12.2019
 * AUTHOR/CODER  : Pedro Martins
 * FILE NAME     : o11_include.js
-* SITE          : obj11.com
-* LICENSE       : obj11.com
+* SITE          : o11.pt
+* LICENSE       : o11.pt
 *********************************************
 */
 
