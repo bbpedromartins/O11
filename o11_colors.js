@@ -1,7 +1,7 @@
 /*
 *********************************************
 * LIBRARY NAME  : OB11_COLORS
-* VERSION       : 14.12.2019
+* VERSION       : 31.12.2019
 * AUTHOR/CODER  : Pedro Martins
 * FILE NAME     : o11_colors.js
 * SITE          : o11.pt
