@@ -1,36 +1,15 @@
 /*
 *********************************************
 * LIBRARY NAME  : OB11_CORE
-* VERSION       : 23.11.2019
+* VERSION       : 14.12.2019
 * AUTHOR/CODER  : Pedro Martins
 * FILE NAME     : ob11_core.js
-* SITE          : obj11.com
-* LICENSE       : obj11.com
+* SITE          : o11.pt
+* LICENSE       : o11.pt
 *********************************************
 */
 
 "use strict";
-
-const RED      = "rgba(255,000,000,1.0)";
-const LIME     = "rgba(000,255,000,1.0)";
-const BLUE     = "rgba(000,000,255,1.0)";
-const BLACK    = "rgba(000,000,000,1.0)";
-const WHITE    = "rgba(255,255,255,1.0)";
-const YELLOW   = "rgba(255,255,000,1.0)";
-const CYAN     = "rgba(000,255,255,1.0)";
-const AQUA     = "rgba(000,255,255,1.0)";
-const MAGENTA  = "rgba(255,000,255,1.0)";
-const FUCHSIA  = "rgba(255,000,255,1.0)";
-const SILVER   = "rgba(192,192,192,1.0)";
-const GRAY     = "rgba(128,128,128,1.0)";
-const GREY     = "rgba(128,128,128,1.0)";
-const MARROON  = "rgba(128,000,000,1.0)";
-const OLIVE    = "rgba(128,128,000,1.0)";
-const GREEN    = "rgba(000,128,000,1.0)";
-const PURPLE   = "rgba(128,000,128,1.0)";
-const TEAL     = "rgba(000,128,128,1.0)";
-const NAVY     = "rgba(000,000,128,1.0)";
-const ORANGE   = "rgba(255,165,000,1.0)";
 
 let globalobjid = 0;
 
@@ -55,7 +34,7 @@ class O11CORE_prop {
   
 /* 
 *************************************************************************
-* Object O11_obj
+* Object O11CORE_obj
 *************************************************************************
 */
 class O11CORE_obj {
@@ -95,7 +74,7 @@ class O11CORE_obj {
 
 /* 
 *************************************************************************
-* Object O11_size
+* Object O11CORE_size
 *************************************************************************
 */
 class O11CORE_size {
@@ -189,244 +168,32 @@ class O11CORE_color {
     this.p_rgbacolor="";
 
     // object properties defaults
-    this.p_rgbacolor="rgba(000,000,000,1.0)";
+    this.p_rgbacolor="rgba(0,0,0,1.0)";
   }
 
   set_rgbacolor(newred, newgreen, newblue, newtransparency) {
-    let red, green, blue, transparency; 
     
-    if (Number.isFinite(newred) === true &&
-        Number.isFinite(newgreen) === true &&
-        Number.isFinite(newblue) === true &&
-        Number.isFinite(newtransparency) === true) {
-
-      if (newred < 0) {
-        newred = 0
-      }  
-  
-      if (newred > 255) {
-        newred = 255
-      }  
-
-      red = newred.toString();
-
-      if (newred < 10) {
-        red = "00" + red;
-      }
-
-      if (newred > 10 && newred < 100) {
-        red = "0" + red;
-      }
-
-
-      if (newgreen < 0) {
-        newgreen = 0
-      }  
-
-      if (newgreen > 255) {
-        newgreen = 255
-      }  
-  
-      green = newgreen.toString();
-
-      if (newgreen < 10) {
-        green = "00" + green;
-      }
-
-      if (newgreen > 10 && newgreen < 100) {
-        green = "0" + green;
-      }
-
-      if (newblue < 0) {
-        newblue = 0
-      }  
-  
-      if (newblue > 255) {
-        newblue = 255
-      }  
-
-      blue = newblue.toString();
-
-      if (newblue < 10) {
-        blue = "00" + blue;
-      }
-
-      if (newblue > 10 && newblue < 100) {
-        blue = "0" + blue;
-      }
-
-      if (newtransparency < 0.0) {
-        transparency = "0.0";
-      }
-  
-      if (newtransparency > 1.0) {
-        transparency = "1.0";
-      }
-  
-      transparency = newtransparency.toString();
-
-      this.p_rgbacolor = "rgba(" + red + "," + green + "," + blue + "," + transparency + ")";
-    } else {
-      console.log("Error: set_rgbacolor ... at least one param is not numeric");
-    }
-
+    this.p_rgbacolor = "rgba(" + newred + "," + newgreen + "," + newblue + "," + newtransparency + ")";
+    
   }
   
   get_rgbacolor() {
     return this.p_rgbacolor;
   }
-
-  set_red(newred) {
+   
+  
+  set_color(newnamecolor, newtransparency) {
     let red, green, blue, transparency;  
 
-    red = this.p_rgbacolor.substr(5,3);
-    green = this.p_rgbacolor.substr(9,3);
-    blue = this.p_rgbacolor.substr(13,3);
-    transparency = this.p_rgbacolor.substr(17,3);
-
-    if (Number.isFinite(newred) === true) {
-
-      if (newred < 0) {
-        newred = 0
-      }  
-  
-      if (newred > 255) {
-        newred = 255
-      }  
-
-      red = newred.toString();
-
-      if (newred < 10) {
-        red = "00" + red;
-      }
-
-      if (newred > 10 && newred < 100) {
-        red = "0" + red;
-      }
- 
-      this.p_rgbacolor = "rgba(" + red + "," + green + "," + blue + "," + transparency + ")";
-
-    } else {
-      console.log("Error: set_red ... param newred is not numeric");  
-    }  
-  }
-
-  get_red() {
-    return this.p_rgbacolor.substr(5,3);
-  }
-
-  set_green(newgreen) {
-    let red, green, blue, transparency;  
-
-    red = this.p_rgbacolor.substr(5,3);
-    green = this.p_rgbacolor.substr(9,3);
-    blue = this.p_rgbacolor.substr(13,3);
-    transparency = this.p_rgbacolor.substr(17,3);
-
-    if (Number.isFinite(newgreen) === true) {
-
-      if (newgreen < 0) {
-        newgreen = 0
-      }  
-
-      if (newgreen > 255) {
-        newgreen = 255
-      }  
-  
-      green = newgreen.toString();
-
-      if (newgreen < 10) {
-        green = "00" + green;
-      }
-
-      if (newgreen > 10 && newgreen < 100) {
-        green = "0" + green;
-      }
- 
-      this.p_rgbacolor = "rgba(" + red + "," + green + "," + blue + "," + transparency + ")";
-    } else {
-      console.log("Error: set_green ... param newgreen is not numeric");
+    /*
+    if (newtransparency===undefined) {
+      this.p_rgbacolor = newnamecolor;
     }
-     
-  }
-
-  get_green() {
-    return this.p_rgbacolor.substr(9,3);
-  }
-
-  set_blue(newblue) {
-    let red, green, blue, transparency;  
-
-    red = this.p_rgbacolor.substr(5,3);
-    green = this.p_rgbacolor.substr(9,3);
-    blue = this.p_rgbacolor.substr(13,3);
-    transparency = this.p_rgbacolor.substr(17,3);
-
-    if (Number.isFinite(newblue) === true) {
-  
-      if (newblue < 0) {
-        newblue = 0
-      }  
-
-      if (newblue > 255) {
-        newblue = 255
-      }  
-
-      blue = newblue.toString();
-
-      if (newblue < 10) {
-        blue = "00" + blue;
-      }
-
-      if (newblue > 10 && newblue < 100) {
-        blue = "0" + blue;
-      }
-      
-      this.p_rgbacolor = "rgba(" + red + "," + green + "," + blue + "," + transparency + ")";
-
-    } else {
-      console.log("Error: set_blue ... param newblue is not numeric");
-    }   
-  }
-
-  get_blue() {
-    return this.p_rgbacolor.substr(13,3);
-  }
-
-  set_transparency(newtransparency) {
-    let red, green, blue, transparency;  
-
-    red = this.p_rgbacolor.substr(5,3);
-    green = this.p_rgbacolor.substr(9,3);
-    blue = this.p_rgbacolor.substr(13,3);
-    transparency = this.p_rgbacolor.substr(17,3);
+    */  
+       
+    this.p_rgbacolor = newnamecolor;
+    ///this.p_rgbacolor = "rgba(" + red + "," + green + "," + blue + "," + transparency + ")";
     
-    if (Number.isFinite(newtransparency) === true) {
-
-      if (newtransparency < 0.0) {
-        transparency = "0.0";
-      }
-
-      if (newtransparency > 1.0) {
-        transparency = "1.0";
-      }
-
-      transparency = newtransparency.toString();
-
-      this.p_rgbacolor = "rgba(" + red + "," + green + "," + blue + "," + transparency + ")";
-    } else {
-      console.log("Error: set_transparency ... param newtransparency is not numeric");
-    }
-
-  }
-
-  get_transparency() {
-    return this.p_rgbacolor.substr(17,3);
-  }
-
-  set_color(color, transparency) {
-     this.p_rgbacolor = color;
-     this.set_transparency(transparency);
   }
  
   set_prop2container(container) {
@@ -482,7 +249,7 @@ class O11CORE_gradient {
 
 /* 
 *************************************************************************
-* Object O11_align
+* Object O11CORE_align
 *************************************************************************
 */
 class O11CORE_align {
@@ -917,43 +684,6 @@ class O11CORE_textgradient {
   }  
 }
 //end O11CORE_textgradient
-
-
-/* 
-*************************************************************************
-* Object O11CORE_image
-*************************************************************************
-*/
-
-class O11CORE_image {
-
-  constructor() {
-    this.p_filepath = new O11CORE_prop();
-    this.p_imagealt = new O11CORE_prop();
-    this.p_width = new O11CORE_prop();
-    this.p_height = new O11CORE_prop();
-
-    // object properties defaults
-    this.p_filepath.set("");
-    this.p_imagealt.set("image");
-    this.p_width.set("32px"); // px
-    this.p_height.set("32px"); // px
-  }
-
-  set_prop2container(container) {
-    let img;
-          
-    img = document.createElement("IMG");
-    img.setAttribute("src", this.p_filepath.get());  
-    img.setAttribute("alt", this.p_imagealt.get());
-    img.setAttribute("width", this.p_width.get());
-    img.setAttribute("height", this.p_height.get());
-
-    container.appendChild(img);
-
-  }
-}
-//end O11CORE_image
 
 
 /* 
