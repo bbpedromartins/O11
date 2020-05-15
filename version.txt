@@ -2,11 +2,11 @@
 *********************************************
 * O11
 *********************************************
-* VERSION       : 03.01.2020
+* VERSION       : 15.05.2020
 * AUTHOR/CODER  : Pedro Martins
 * SITE          : o11.pt
 * LICENSE       : o11.pt
-* STATUS        : Very buggy. Testing only.
+* STATUS        : Testing only.
 *********************************************
 */
 
@@ -26,18 +26,18 @@
 *********************************************
 * CORE OBJECTS (inside file o11core.js)
 *********************************************
-001 > O11CORE_prop
-002 > O11CORE_obj
-003 > O11CORE_size
-004 > O11CORE_color
-005 > O11CORE_backcolor
-006 > O11CORE_align
-007 > O11CORE_audio
-008 > O11CORE_image
-009 > O11CORE_backimage
-010 > O11CORE_video
-011 > O11CORE_font
-012 > O11CORE_link
+001 > O11CORE_
+002 > O11CORE_
+003 > O11CORE_
+004 > O11CORE_
+005 > O11CORE_
+006 > O11CORE_
+007 > O11CORE_
+008 > O11CORE_
+009 > O11CORE_
+010 > O11CORE_
+011 > O11CORE_
+012 > O11CORE_
 *********************************************
 */
 
@@ -46,17 +46,17 @@
 *********************************************
 * SITE OBJECT FILES
 *********************************************
-001 > o11_audio.js
-002 > o11_image.js
-003 > o11_imagelink.js
-004 > o11_include.js
-005 > o11_page.js
-006 > o11_text.js
-007 > o11_textlink.js
-008 > o11_textlist.js
-009 > o11_textlistlink.js
-010 > o11_tile.js
-011 > o11_video.js
-012 > o11_videolink.js
+001 > .js
+002 > .js
+003 > .js
+004 > .js
+005 > .js
+006 > .js
+007 > .js
+008 > .js
+009 > .js
+010 > .js
+011 > .js
+012 > .js
 *********************************************
 /*
